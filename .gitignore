@@ -9,6 +9,9 @@ media
 # Backup files # 
 *.bak 
 
+#DS
+.DS_Store
+
 # If you are using PyCharm # 
 # User-specific stuff
 .idea/**/workspace.xml
