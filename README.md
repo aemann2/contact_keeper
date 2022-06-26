@@ -1,0 +1,1 @@
+A Contact Keeper project for Django. This is a Django adaptation of Brad Traversy's React version, from his Udemy course.
