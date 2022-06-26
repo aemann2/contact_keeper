@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.base import TemplateView
 from django.contrib.auth.views import LoginView
 
@@ -8,7 +9,7 @@ class Home(TemplateView):
     template_name = "home.html"
 
 
-class Profile(TemplateView):
+class Profile(LoginRequiredMixin, TemplateView):
     template_name = "accounts/profile.html"
 
 
