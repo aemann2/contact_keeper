@@ -12,6 +12,9 @@ media
 #DS
 .DS_Store
 
+#static
+staticfiles/
+
 # If you are using PyCharm # 
 # User-specific stuff
 .idea/**/workspace.xml
