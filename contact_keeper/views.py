@@ -1,4 +1,5 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, redirect
+from django.contrib.auth import logout
 from django.views.generic.base import TemplateView
 from django.contrib.auth.views import LoginView
 
@@ -13,3 +14,8 @@ class Profile(TemplateView):
 
 class Login(LoginView):
     template_name = "registration/login.html"
+
+
+def logout_view(request):
+    logout(request)
+    return redirect("/")
