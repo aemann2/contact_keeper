@@ -13,7 +13,12 @@ from .forms import ContactForm
 @login_required
 def home(request):
     if request.POST:
-        print("here")
+        # create form instance w/ cleaned POST data
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            contact = form.save(commit=False)
+            contact.owner = request.user
+            contact.save()
     context = {"contact_form": ContactForm}
     return render(request, "home.html", context)
 
