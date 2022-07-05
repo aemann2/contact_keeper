@@ -7,10 +7,14 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 from django.views.generic.base import TemplateView
 from django.views.generic import CreateView
+from .forms import ContactForm
+
 
 @login_required
 def home(request):
-    context = {}
+    if request.POST:
+        print("here")
+    context = {"contact_form": ContactForm}
     return render(request, "home.html", context)
 
 
@@ -42,6 +46,7 @@ class SignUp(CreateView):
             return super().get(request, *args, **kwargs)
         else:
             return redirect("/")
+
 
 def logout_view(request):
     logout(request)
