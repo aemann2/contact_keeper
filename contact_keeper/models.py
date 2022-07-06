@@ -16,8 +16,8 @@ class Contact(models.Model):
         on_delete=models.CASCADE,
     )
     name = models.CharField(max_length=100)
-    email = models.EmailField()
-    phone = PhoneField(E164_only=True)
+    email = models.EmailField(max_length=100)
+    phone = PhoneField(E164_only=True, max_length=15)
     PERSONAL = "Personal"
     PROFESSIONAL = "Professional"
     CONTACT_TYPE_CHOICES = [
