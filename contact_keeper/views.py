@@ -18,7 +18,11 @@ def home(request):
         if form.is_valid():
             form.owner = request.user
             form.save()
-    context = {"contact_form": ContactForm}
+            # reset form
+            form = ContactForm()
+    else:
+        form = ContactForm()
+    context = {"contact_form": form}
     return render(request, "home.html", context)
 
 
