@@ -13,4 +13,21 @@
 {% if user.is_authenticated %}
 	<a href="logout">logout</a>
 {% endif %}
+
+<script>
+	const phoneField = document.getElementById('id_phone_0')
+	phoneField.addEventListener('keydown', phoneInputFunc)
+	
+	function phoneInputFunc(event) {
+		if (!isFinite(event.key) || event.key === 'Backspace') {
+			event.preventDefault()
+		} 
+		/*
+		if (event.target.value.length > 2) {
+			event.target.value = '(' + event.target.value + ')'
+		}
+		*/
+	}
+</script>
+
 {% endblock content %}
