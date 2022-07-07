@@ -1,0 +1,8 @@
+
+.phone-field-ext, #id_phone_1 {
+	display: none;
+}
+
+.errorlist {
+	color: red;
+}

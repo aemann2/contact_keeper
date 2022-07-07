@@ -1,8 +1,42 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-<h1>Hello world</h1>
+<div>
+<h1>Add Contact</h1>
+<form action='/' method='post'>
+	{% csrf_token %}
+{{ contact_form.as_p }}
+<input type="submit" class="submit_btn btn label-success" value="Add Contact" />
+</form>
+</div>
 {% if user.is_authenticated %}
 	<a href="logout">logout</a>
 {% endif %}
+
+<script>
+	const phoneField = document.getElementById('id_phone_0')
+	phoneField.addEventListener('keydown', formatPhoneNumber)
+	
+	function formatPhoneNumber(event) {
+		if ((!isFinite(event.key) || event.target.value.length > 12) && event.key !== 'Backspace') {
+			event.preventDefault()
+		} 
+
+		// removes ')' or '-' along w/ number if backspaced over
+		if ((event.target.value.slice(-1) === '-' || event.target.value.slice(-1) === ')') && event.key === 'Backspace') {
+			event.target.value = event.target.value.slice(0, -1)
+			return
+		}
+
+		if (event.target.value.length === 3 && !event.target.value.includes('(')) {
+			event.target.value = '(' + event.target.value + ')';
+		} else if (event.target.value.length === 4 && event.target.value.includes('(')) {
+			event.target.value = event.target.value + ')';
+		} else if (event.target.value.length === 8) {
+			event.target.value = event.target.value + '-';
+		}
+	}
+</script>
+
 {% endblock content %}

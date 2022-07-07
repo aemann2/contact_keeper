@@ -1,19 +1,33 @@
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.contrib.auth import logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView
+from django.contrib.auth.decorators import login_required
 from django.views.generic.base import TemplateView
 from django.views.generic import CreateView
+from .forms import ContactForm
 
-# Create your views here.
-class Home(TemplateView):
-    template_name = "home.html"
+
+@login_required
+def home(request):
+    if request.POST:
+        # create form instance POST data, validate, attach user, and save
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.owner = request.user
+            form.save()
+            # reset form
+            form = ContactForm()
+    else:
+        form = ContactForm()
+    context = {"contact_form": form}
+    return render(request, "home.html", context)
 
 
 class Profile(LoginRequiredMixin, TemplateView):
-    template_name = "accounts/profile.html"
+    template_name = "home.html"
 
 
 class Login(LoginView):
@@ -25,7 +39,7 @@ class Login(LoginView):
         if request.user.is_anonymous:
             return super().get(request, *args, **kwargs)
         else:
-            return redirect("/accounts/profile/")
+            return redirect("/")
 
 
 class SignUp(CreateView):
@@ -39,9 +53,9 @@ class SignUp(CreateView):
         if request.user.is_anonymous:
             return super().get(request, *args, **kwargs)
         else:
-            return redirect("/accounts/profile/")
+            return redirect("/")
 
 
 def logout_view(request):
     logout(request)
-    return redirect("/")
+    return redirect("/registration/login")
