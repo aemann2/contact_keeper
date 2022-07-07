@@ -19,14 +19,27 @@
 	phoneField.addEventListener('keydown', phoneInputFunc)
 	
 	function phoneInputFunc(event) {
-		if (!isFinite(event.key) || event.key === 'Backspace') {
+		if (!isFinite(event.key) && event.key !== 'Backspace') {
 			event.preventDefault()
 		} 
-		/*
-		if (event.target.value.length > 2) {
-			event.target.value = '(' + event.target.value + ')'
+		
+		if (event.target.value.length > 12 && event.key !== 'Backspace') {
+			event.preventDefault()
 		}
-		*/
+
+		if (event.key === 'Backspace') {
+			return
+		}
+
+		setTimeout(() => {
+			if (event.target.value.length === 3 && !event.target.value.includes('(')) {
+				event.target.value = '(' + event.target.value + ')';
+			} else if (event.target.value.length === 8) {
+				event.target.value = event.target.value + '-';
+			}
+
+		}, 1)
+
 	}
 </script>
 
