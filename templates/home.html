@@ -16,30 +16,26 @@
 
 <script>
 	const phoneField = document.getElementById('id_phone_0')
-	phoneField.addEventListener('keydown', phoneInputFunc)
+	phoneField.addEventListener('keydown', formatPhoneNumber)
 	
-	function phoneInputFunc(event) {
-		if (!isFinite(event.key) && event.key !== 'Backspace') {
+	function formatPhoneNumber(event) {
+		if ((!isFinite(event.key) || event.target.value.length > 12) && event.key !== 'Backspace') {
 			event.preventDefault()
 		} 
-		
-		if (event.target.value.length > 12 && event.key !== 'Backspace') {
-			event.preventDefault()
-		}
 
-		if (event.key === 'Backspace') {
+		// removes ')' or '-' along w/ number if backspaced over
+		if ((event.target.value.slice(-1) === '-' || event.target.value.slice(-1) === ')') && event.key === 'Backspace') {
+			event.target.value = event.target.value.slice(0, -1)
 			return
 		}
 
-		setTimeout(() => {
-			if (event.target.value.length === 3 && !event.target.value.includes('(')) {
-				event.target.value = '(' + event.target.value + ')';
-			} else if (event.target.value.length === 8) {
-				event.target.value = event.target.value + '-';
-			}
-
-		}, 1)
-
+		if (event.target.value.length === 3 && !event.target.value.includes('(')) {
+			event.target.value = '(' + event.target.value + ')';
+		} else if (event.target.value.length === 4 && event.target.value.includes('(')) {
+			event.target.value = event.target.value + ')';
+		} else if (event.target.value.length === 8) {
+			event.target.value = event.target.value + '-';
+		}
 	}
 </script>
 
