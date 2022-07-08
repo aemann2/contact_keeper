@@ -24,7 +24,23 @@ button {
 	cursor: pointer;
 }
 
+nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 /* Main */
+
+.nav__wrapper {
+	display: flex;
+	justify-content: space-between;
+	padding:.5rem;
+}
+
+.nav__item {
+  display: inline;
+}
 
 .phone-field-ext, #id_phone_1 {
 	display: none;

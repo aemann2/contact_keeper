@@ -1,22 +1,22 @@
 {% load static %}
-<nav>
-	<ul>
-		<li>
-			<h1>Contact Keeper</h1>
+<nav class='nav'>
+	<ul class='nav__wrapper'>
+		<li class='nav__item'>
+			<span class='nav__item__title'>Contact Keeper</span>
 		</li>
 		{% if not user.is_authenticated and 'login' not in request.path %}
-		<li>
-			<a href="/registration/login/">Log In</a>
+		<li class='nav__item'>
+			<a class='nav__item__link' href="/registration/login/">Log In</a>
 		</li>
 		{% endif %}
 		{% if not user.is_authenticated and 'signup' not in request.path %}
-		<li>
-			<a href="/registration/signup/">Sign Up</a>
+		<li class='nav__item'>
+			<a class='nav__item__link' href="/registration/signup/">Sign Up</a>
 		</li>
 		{% endif %}
 		{% if user.is_authenticated %}
-			<li>
-				<a href="logout">Log out</a>
+			<li class='nav__item'>
+				<a class='nav__item__link' href="logout">Log out</a>
 			</li>
 		{% endif %}
 	</ul>
