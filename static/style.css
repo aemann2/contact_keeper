@@ -1,4 +1,31 @@
 
+/* Globals */
+
+html {
+	box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	min-height: 100vh;
+	font-size: 100%;
+}
+
+button {
+	cursor: pointer;
+}
+
+/* Main */
+
 .phone-field-ext, #id_phone_1 {
 	display: none;
 }
