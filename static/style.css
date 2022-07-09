@@ -46,6 +46,11 @@ nav {
 	margin-top: 1rem;
 }
 
+.contact_cards {
+	height: 300px;
+	overflow: scroll;
+}
+
 .contact_card {
 	margin-top: 1rem;
 }
