@@ -1,4 +1,47 @@
 
+/* Globals */
+
+html {
+	box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	min-height: 100vh;
+	font-size: 100%;
+}
+
+button {
+	cursor: pointer;
+}
+
+nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main */
+
+.nav__wrapper {
+	display: flex;
+	justify-content: space-between;
+	padding:.5rem;
+}
+
+.nav__item {
+  display: inline;
+}
+
 .phone-field-ext, #id_phone_1 {
 	display: none;
 }

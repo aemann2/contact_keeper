@@ -7,12 +7,9 @@
 <form action='/' method='post'>
 	{% csrf_token %}
 {{ contact_form.as_p }}
-<input type="submit" class="submit_btn btn label-success" value="Add Contact" />
+<button type="submit" class="submit_btn btn label-success">Add Contact</button>
 </form>
 </div>
-{% if user.is_authenticated %}
-	<a href="logout">logout</a>
-{% endif %}
 
 <script>
 	const phoneField = document.getElementById('id_phone_0')
