@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.contrib.auth import logout
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -27,6 +27,12 @@ def home(request):
     context = {"contact_form": form, "contacts": all_contacts}
     return render(request, "home.html", context)
 
+def delete_contact(request, pk):
+    contact = get_object_or_404(Contact, pk=pk)
+    if request.POST:
+        contact.delete()
+        return redirect('/')
+    return render(request, 'home.html', {'contact': contact})
 
 class Profile(LoginRequiredMixin, TemplateView):
     template_name = "home.html"

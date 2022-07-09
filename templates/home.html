@@ -6,7 +6,7 @@
 	<h2>Add Contact</h2>
 	<form action='/' method='post'>
 		{% csrf_token %}
-	{{ contact_form.as_p }}
+		{{ contact_form.as_p }}
 	<button type="submit" class="submit_btn btn label-success">Add Contact</button>
 	</form>
 </div>
@@ -21,8 +21,11 @@
 						<li class='contact contact__email'>{{contact.email}}</li>
 						<li class='contact contact__phone'>{{contact.phone}}</li>
 						<li class='contact contact__type'>{{contact.contact_type}}</li>
+						<form action="{% url 'delete_contact' contact.id %}" method="post">
+							{% csrf_token %}
+							<button class='contact__button contact__button--delete' type="submit">Delete</button>
+						</form>
 						<button class='contact__button contact__button--edit'>Edit</button>
-						<button class='contact__button contact__button--delete'>Delete</button>
 					</ul>
 				</div>
 			{% endfor %}
