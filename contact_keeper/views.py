@@ -7,6 +7,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 from django.views.generic.base import TemplateView
 from django.views.generic import CreateView
+from .models import Contact
 from .forms import ContactForm
 
 
@@ -22,7 +23,8 @@ def home(request):
             form = ContactForm()
     else:
         form = ContactForm()
-    context = {"contact_form": form}
+    all_contacts = Contact.objects.filter(owner=request.user)
+    context = {"contact_form": form, "contacts": all_contacts}
     return render(request, "home.html", context)
 
 
