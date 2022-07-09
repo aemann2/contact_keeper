@@ -40,15 +40,13 @@ def edit_contact(request, pk):
     contact = get_object_or_404(Contact, pk=pk)
     if request.POST:
         form = ContactForm(request.POST, instance=contact)
-        # if form.is_valid():
-        #     contact = form.save(commit=False)
-        #     contact.owner = request.user
-        #     contact.save()
-        #     # reset form
-        #     form = ContactForm()
-        #     return redirect("/")
+        if form.is_valid():
+            contact.save()
+            form = ContactForm()
+            return redirect("/")
     else:
-        form = ContactForm()
+        # using instance property to populate form w/ retrieved data from Contact model
+        form = ContactForm(instance=contact)
     all_contacts = Contact.objects.filter(owner=request.user)
     context = {"contact_form": form, "contacts": all_contacts}
     return render(request, "home.html", context)
