@@ -14,7 +14,7 @@
 <div class='contacts'>
 	<h2>Contact List</h2>
 {% for contact in contacts  %}
-	<div class=contact_card>
+	<div class='contact_card'>
 		<ul class='contact_list'>
 			<li class='contact contact__name'>{{contact.name}}</li>
 			<li class='contact contact__email'>{{contact.email}}</li>
@@ -22,8 +22,8 @@
 			<li class='contact contact__type'>{{contact.contact_type}}</li>
 			<button class='contact__button contact__button--edit'>Edit</button>
 			<button class='contact__button contact__button--delete'>Delete</button>
-		<ul>
-	<div>
+		</ul>
+	</div>
 {% endfor %}
 </div>
 
