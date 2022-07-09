@@ -42,6 +42,10 @@ nav {
   display: inline;
 }
 
+.contacts {
+	margin-top: 1rem;
+}
+
 .phone-field-ext, #id_phone_1 {
 	display: none;
 }

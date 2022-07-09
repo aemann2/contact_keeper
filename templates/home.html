@@ -2,13 +2,29 @@
 {% load static %}
 
 {% block content %}
-<div>
-<h1>Add Contact</h1>
-<form action='/' method='post'>
-	{% csrf_token %}
-{{ contact_form.as_p }}
-<button type="submit" class="submit_btn btn label-success">Add Contact</button>
-</form>
+<div class='add_contact'>
+	<h2>Add Contact</h2>
+	<form action='/' method='post'>
+		{% csrf_token %}
+	{{ contact_form.as_p }}
+	<button type="submit" class="submit_btn btn label-success">Add Contact</button>
+	</form>
+</div>
+
+<div class='contacts'>
+	<h2>Contact List</h2>
+{% for contact in contacts  %}
+	<div class=contact_card>
+		<ul class='contact_list'>
+			<li class='contact contact__name'>{{contact.name}}</li>
+			<li class='contact contact__email'>{{contact.email}}</li>
+			<li class='contact contact__phone'>{{contact.phone}}</li>
+			<li class='contact contact__type'>{{contact.contact_type}}</li>
+			<button class='contact__button contact__button--edit'>Edit</button>
+			<button class='contact__button contact__button--delete'>Delete</button>
+		<ul>
+	<div>
+{% endfor %}
 </div>
 
 <script>
