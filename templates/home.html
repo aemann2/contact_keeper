@@ -11,7 +11,11 @@
 	{% endif %}
 		{% csrf_token %}
 		{{ contact_form.as_p }}
-	<button type="submit" class="submit_btn btn label-success">Add Contact</button>
+		{% if 'edit' in request.path %}
+		<button type="submit" class="submit_btn btn label-success">Edit Contact</button>
+		{% else %}
+		<button type="submit" class="submit_btn btn label-success">Add Contact</button>
+		{% endif %}
 	</form>
 </div>
 
