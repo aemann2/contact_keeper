@@ -48,7 +48,8 @@ def edit_contact(request, pk):
         # using instance property to populate form w/ retrieved data from Contact model
         form = ContactForm(instance=contact)
     all_contacts = Contact.objects.filter(owner=request.user)
-    context = {"contact_form": form, "contacts": all_contacts}
+    # pk added to context so we can access it in the template
+    context = {"contact_form": form, "contacts": all_contacts, "pk": pk}
     return render(request, "home.html", context)
 
 
