@@ -21,6 +21,9 @@
 
 <div class='contacts'>
 	<h2>Contact List</h2>
+	<form action="/">
+		<input name="filter" placeholder="Filter Contacts..." />
+	</form>
 		<div class='contact_cards'>
 			{% for contact in contacts  %}
 				<div class='contact_card'>
