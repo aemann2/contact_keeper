@@ -4,7 +4,11 @@
 {% block content %}
 <div class='add_contact'>
 	<h2>Add Contact</h2>
+	{% if 'edit' in request.path %}
+	<form action="{% url 'edit_contact' pk %}" method='post'>
+	{% else %}
 	<form action='/' method='post'>
+	{% endif %}
 		{% csrf_token %}
 		{{ contact_form.as_p }}
 	<button type="submit" class="submit_btn btn label-success">Add Contact</button>
@@ -25,7 +29,10 @@
 							{% csrf_token %}
 							<button class='contact__button contact__button--delete' type="submit">Delete</button>
 						</form>
-						<button class='contact__button contact__button--edit'>Edit</button>
+						<form action="{% url 'edit_contact' contact.id %}">
+							{% csrf_token %}
+							<button class='contact__button contact__button--edit' type="submit">Edit</button>
+						</form>
 					</ul>
 				</div>
 			{% endfor %}
