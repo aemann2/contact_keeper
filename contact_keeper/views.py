@@ -7,6 +7,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 from django.views.generic.base import TemplateView
 from django.views.generic import CreateView
+from django.db.models import Q
 from .models import Contact
 from .forms import ContactForm
 
@@ -14,7 +15,7 @@ from .forms import ContactForm
 @login_required
 def home(request):
     if request.POST:
-        # create form instance POST data, validate, attach user, and save
+        # create form instance w/ POST data, validate, attach user, and save
         form = ContactForm(request.POST)
         if form.is_valid():
             form.owner = request.user
@@ -23,8 +24,14 @@ def home(request):
             form = ContactForm()
     else:
         form = ContactForm()
-    all_contacts = Contact.objects.filter(owner=request.user)
-    context = {"contact_form": form, "contacts": all_contacts}
+    # getting contacts based on filter
+    filter = request.GET.get("filter")
+    contacts = Contact.objects.filter(owner=request.user)
+    if filter:
+        contacts = contacts.filter(
+            Q(name__icontains=filter) | Q(email__icontains=filter)
+        )
+    context = {"contact_form": form, "contacts": contacts, "filter": filter}
     return render(request, "home.html", context)
 
 
@@ -47,9 +54,9 @@ def edit_contact(request, pk):
     else:
         # using instance property to populate form w/ retrieved data from Contact model
         form = ContactForm(instance=contact)
-    all_contacts = Contact.objects.filter(owner=request.user)
+    contacts = Contact.objects.filter(owner=request.user)
     # pk added to context so we can access it in the template
-    context = {"contact_form": form, "contacts": all_contacts, "pk": pk}
+    context = {"contact_form": form, "contacts": contacts, "pk": pk}
     return render(request, "home.html", context)
 
 
