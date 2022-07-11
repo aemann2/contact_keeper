@@ -35,6 +35,7 @@ def home(request):
     return render(request, "home.html", context)
 
 
+@login_required
 def delete_contact(request, pk):
     contact = get_object_or_404(Contact, pk=pk)
     if request.POST:
@@ -43,6 +44,7 @@ def delete_contact(request, pk):
     return render(request, "home.html", {"contact": contact})
 
 
+@login_required
 def edit_contact(request, pk):
     contact = get_object_or_404(Contact, pk=pk)
     if request.POST:
@@ -89,7 +91,7 @@ class SignUp(CreateView):
         else:
             return redirect("/")
 
-
+@login_required
 def logout_view(request):
     logout(request)
     return redirect("/registration/login")
