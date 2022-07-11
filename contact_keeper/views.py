@@ -17,8 +17,8 @@ def home(request):
     if request.POST:
         # create form instance w/ POST data, validate, attach user, and save
         form = ContactForm(request.POST)
+        form.owner = request.user
         if form.is_valid():
-            form.owner = request.user
             form.save()
             # reset form
             form = ContactForm()
@@ -49,6 +49,7 @@ def edit_contact(request, pk):
     contact = get_object_or_404(Contact, pk=pk)
     if request.POST:
         form = ContactForm(request.POST, instance=contact)
+        form.owner = request.user
         if form.is_valid():
             contact.save()
             form = ContactForm()
