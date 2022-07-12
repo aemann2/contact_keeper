@@ -13,19 +13,27 @@ class ContactForm(ModelForm):
 
     # overwrite __init__ to set placeholder values
     def __init__(self, *args, **kwargs):
+        self.pk = kwargs.get("pk")
+        if self.pk:
+            # popping 'pk' to avoid kwargs error
+            kwargs.pop("pk")
         super(ContactForm, self).__init__(*args, **kwargs)
         self.fields["name"].widget.attrs["placeholder"] = "John Doe"
         self.fields["email"].widget.attrs["placeholder"] = "john@gmail.com"
         self.fields["phone"].widget.attrs["placeholder"] = "(415)555-0938"
 
-    # checking for duplicate entries
+    # overwriting to check for duplicate entries
     def clean(self):
         data = self.cleaned_data
+        pk = self.pk
+        owner = self.owner
         name = data["name"]
         email = data["email"]
         phone = data["phone"]
-        owner = self.owner
-        duplicate = Contact.objects.filter(name=name, email=email, phone=phone, owner=owner)
+        # excluding by pk so we don't get a ValidaionError when editing w/o changes
+        duplicate = Contact.objects.filter(
+            name=name, email=email, phone=phone, owner=owner
+        ).exclude(pk=pk)
         if duplicate:
             raise ValidationError("This contact already exists")
 
