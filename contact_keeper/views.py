@@ -48,7 +48,8 @@ def delete_contact(request, pk):
 def edit_contact(request, pk):
     contact = get_object_or_404(Contact, pk=pk)
     if request.POST:
-        form = ContactForm(request.POST, instance=contact)
+        # adding contact pk for exclude in ContactForm clean() override
+        form = ContactForm(request.POST, instance=contact, pk=pk)
         form.owner = request.user
         if form.is_valid():
             contact.save()
