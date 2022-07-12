@@ -16,7 +16,7 @@
 		{% endif %}
 		{% if user.is_authenticated %}
 			<li class='nav__item'>
-				<a class='nav__item__link' href="logout">Log out</a>
+				<a class='nav__item__link' href="{% url 'logout' %}">Log out</a>
 			</li>
 		{% endif %}
 	</ul>
