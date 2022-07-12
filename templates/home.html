@@ -48,8 +48,10 @@
 					</ul>
 				</div>
 			{% endfor %}
-			{% else %}
+			{% elif filter %}
 				<p>No contacts found with that filter</p>
+			{% else %}
+				<p>Add contacts above</p>
 			{% endif %}
 	</div>
 </div>

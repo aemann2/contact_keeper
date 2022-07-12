@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic.base import TemplateView
 from django.views.generic import CreateView
 from django.db.models import Q
-from .models import Contact
+from .models import Contact, User
 from .forms import ContactForm
 
 
@@ -80,8 +80,14 @@ class Login(LoginView):
             return redirect("/")
 
 
+# as per docs, must add a custom creation form since we're using a custom User model
+class CustomUserCreationForm(UserCreationForm):
+    class Meta(UserCreationForm.Meta):
+        model = User
+
+
 class SignUp(CreateView):
-    form_class = UserCreationForm
+    form_class = CustomUserCreationForm
     success_url = reverse_lazy("login")
     template_name = "registration/signup.html"
 
@@ -92,6 +98,7 @@ class SignUp(CreateView):
             return super().get(request, *args, **kwargs)
         else:
             return redirect("/")
+
 
 @login_required
 def logout_view(request):
