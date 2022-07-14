@@ -1,6 +1,7 @@
 from django.test import TestCase
 from ..models import User
 from ..models import Contact
+from django.core.exceptions import ValidationError
 
 # Create your tests here.
 class UserAndContactTests(TestCase):
@@ -23,7 +24,7 @@ class UserAndContactTests(TestCase):
             owner=self.john,
             name="Jim Doe",
             email="jim@test.com",
-            phone="415-555-5555",
+            phone="123-123-1233",
             contact_type="Professional",
         )
 
@@ -37,6 +38,13 @@ class UserAndContactTests(TestCase):
         self.assertEqual(contacts.count(), 2)
         self.assertEqual(self.jane.name, "Jane Doe")
         self.assertEqual(self.jane.owner.username, "jdoe")
+
+    def test_contact_str_method(self):
+        self.assertEqual(str(self.jane), "Jane Doe")
+
+    def test_validate_E164(self):
+        with self.assertRaises(ValidationError):
+            self.jim.full_clean()
 
     def test_contact_delete(self):
         Contact.objects.filter(email=self.jane.email).delete()

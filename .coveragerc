@@ -1,0 +1,5 @@
+[run]
+ branch = True
+ source = .
+ omit =
+ 	/Users/adammann/Desktop/django_contact_keeper/contact_keeper/manage.py
