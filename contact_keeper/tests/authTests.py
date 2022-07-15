@@ -1,30 +1,16 @@
-from django.test import TestCase, Client
+from django.test import TestCase
 from ..models import User
 
 
-class SimpleTest(TestCase):
+class LogInTest(TestCase):
     def setUp(self):
-        User.objects.create(
-            username="jdoe", email="john@gmail.com", password="12345678"
-        )
-        self.client = Client()
+        self.credentials = {"username": "jdoe", "password": "12345678"}
+        User.objects.create_user(**self.credentials)
 
-    def test_200(self):
-        response = self.client.get("/registration/login/")
-        # Check that the response is 200 OK.
-        self.assertEqual(response.status_code, 200)
-
-    def test_login_success(self):
+    def test_login(self):
+        # send login data
         response = self.client.post(
-            "/registration/login/", {"username": "jdoe", "password": "12345678"}
+            "/registration/login/", self.credentials, follow=True
         )
-        print(response)
-    #     # Check that the response is 200 OK.
-    #     self.assertEqual(response.status_code, 200)
-
-    # def test_login_fail(self):
-    #     response = self.client.post(
-    #         "/registration/login/", {"username": "jdoe", "password": "1234"}
-    #     )
-    #     # Check that the response is 200 OK.
-    #     self.assertEqual(response.status_code, 200)
+        # should be logged in now
+        self.assertTrue(response.context['user'].is_active)
