@@ -4,4 +4,8 @@
  omit =
   manage.py
   ./src/*
-  ./tests/*
+  ./contact_keeper/tests/*
+  ./contact_keeper/migrations/*
+  ./contact_keeper/__init__.py
+  ./contact_keeper/admin.py
+  ./contact_keeper/apps.py
