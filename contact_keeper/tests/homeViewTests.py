@@ -46,7 +46,22 @@ class HomeViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, template_name="home.html")
 
-    def test_edit(self):
+    def test_edit_form_fields(self):
         jim = Contact.objects.filter(name="Jim Doe").first()
-        response = self.client.post(f"/edit/{jim.pk}")
-        self.assertTemplateUsed(response, template_name="home.html")
+        response = self.client.get(f"/edit/{jim.pk}")
+        form = response.context["form"]
+        self.assertTrue(form["name"].value() == "Jim Doe")
+        self.assertTrue(form["email"].value() == "jim@test.com")
+        self.assertTrue(form["phone"].value() == "123-123-1233")
+        self.assertTrue(form["contact_type"].value() == "Professional")
+
+    def test_edit_post(self):
+        jim = Contact.objects.filter(name="Jim Doe").first()
+        form_data = {
+            "name": "Tim Doe",
+            "email": "tim@gmail.com",
+            "phone_0": "415-394-3948",
+            "contact_type": "Personal",
+        }
+        response = self.client.post(f"/edit/{jim.pk}", form_data)
+        self.assertEqual(response.status_code, 302)
