@@ -35,6 +35,15 @@ class HomeViewTests(TestCase):
     def test_delete(self):
         jim = Contact.objects.filter(name="Jim Doe").first()
         response = self.client.post(f"/delete/{jim.pk}")
+        self.assertEqual(response.status_code, 302)
+        jim = Contact.objects.filter(name="Jim Doe").exists()
+        # checking for deletion
+        self.assertFalse(jim)
+
+    def test_delete_get(self):
+        jim = Contact.objects.filter(name="Jim Doe").first()
+        response = self.client.get(f"/delete/{jim.pk}")
+        self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, template_name="home.html")
 
     def test_edit(self):
