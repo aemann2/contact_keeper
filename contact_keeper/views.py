@@ -38,7 +38,7 @@ def home(request):
 @login_required
 def delete_contact(request, pk):
     contact = get_object_or_404(Contact, pk=pk)
-    if request.POST:
+    if request.method == 'POST':
         contact.delete()
         return redirect("/")
     return render(request, "home.html", {"contact": contact})
@@ -47,7 +47,7 @@ def delete_contact(request, pk):
 @login_required
 def edit_contact(request, pk):
     contact = get_object_or_404(Contact, pk=pk)
-    if request.POST:
+    if request.method == 'POST':
         # adding contact pk for exclude in ContactForm clean() override
         form = ContactForm(request.POST, instance=contact, pk=pk)
         form.owner = request.user

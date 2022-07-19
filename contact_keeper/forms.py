@@ -12,7 +12,7 @@ class ContactForm(ModelForm):
         }
 
     # overwrite __init__ to set placeholder values
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs):  # pragma: no cover
         self.pk = kwargs.get("pk")
         if self.pk:
             # popping 'pk' to avoid kwargs error
@@ -27,9 +27,9 @@ class ContactForm(ModelForm):
         data = self.cleaned_data
         pk = self.pk
         owner = self.owner
-        name = data["name"]
-        email = data["email"]
-        phone = data["phone"]
+        name = data.get("name")
+        email = data.get("email")
+        phone = data.get("phone")
         # excluding by pk so we don't get a ValidaionError when editing w/o changes
         duplicate = Contact.objects.filter(
             name=name, email=email, phone=phone, owner=owner
