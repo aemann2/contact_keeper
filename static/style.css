@@ -1,64 +1,51 @@
-
 /* Globals */
-
 html {
-	box-sizing: border-box;
-}
+  box-sizing: border-box; }
+
 *,
 *:before,
 *:after {
-	box-sizing: inherit;
-}
+  box-sizing: inherit; }
 
 * {
-	margin: 0;
-	padding: 0;
-}
+  margin: 0;
+  padding: 0; }
 
 body {
-	min-height: 100vh;
-	font-size: 100%;
-}
+  min-height: 100vh;
+  font-size: 100%; }
 
 button {
-	cursor: pointer;
-}
+  cursor: pointer; }
 
 nav {
   list-style-type: none;
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
 
 /* Main */
-
 .nav__wrapper {
-	display: flex;
-	justify-content: space-between;
-	padding:.5rem;
-}
+  display: flex;
+  justify-content: space-between;
+  padding: .5rem; }
 
 .nav__item {
-  display: inline;
-}
+  display: inline; }
 
 .contacts {
-	margin-top: 1rem;
-}
+  margin-top: 1rem; }
 
 .contact_cards {
-	height: 300px;
-	overflow: scroll;
-}
+  height: 300px;
+  overflow: scroll; }
 
 .contact_card {
-	margin-top: 1rem;
-}
+  margin-top: 1rem; }
 
 .phone-field-ext, #id_phone_1 {
-	display: none;
-}
+  display: none; }
 
 .errorlist {
-	color: red;
-}
+  color: red; }
+
+/*# sourceMappingURL=style.css.map */
