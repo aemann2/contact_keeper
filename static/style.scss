@@ -1,6 +1,9 @@
 
 /* Globals */
 
+$nav-color: #5763B7;
+$white: #FFFFFF;
+
 html {
 	box-sizing: border-box;
 }
@@ -32,14 +35,21 @@ nav {
 
 /* Main */
 
-.nav__wrapper {
-	display: flex;
-	justify-content: space-between;
-	padding:.5rem;
-}
+.nav {
+	&__wrapper {
+		display: flex;
+		justify-content: space-around;
+		background-color: $nav-color;
+		width: 100%;
+		padding:.5rem;
+	}
+	&__item {
+		display: inline;
 
-.nav__item {
-  display: inline;
+		&__title, &__link {
+			color: $white;
+		}
+	}
 }
 
 .contacts {

@@ -26,11 +26,15 @@ nav {
 /* Main */
 .nav__wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  background-color: #5763B7;
+  width: 100%;
   padding: .5rem; }
 
 .nav__item {
   display: inline; }
+  .nav__item__title, .nav__item__link {
+    color: #FFFFFF; }
 
 .contacts {
   margin-top: 1rem; }
