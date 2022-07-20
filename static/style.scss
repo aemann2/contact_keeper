@@ -3,6 +3,7 @@
 
 $nav-color: #5763B7;
 $white: #FFFFFF;
+$yellow: yellow;
 
 html {
 	box-sizing: border-box;
@@ -27,6 +28,11 @@ button {
 	cursor: pointer;
 }
 
+a:hover {
+  text-decoration: none;
+	color: $yellow;
+}
+
 nav {
   list-style-type: none;
   margin: 0;
@@ -46,8 +52,12 @@ nav {
 	&__item {
 		display: inline;
 
-		&__title, &__link {
+		&__title, &__link, &__icon {
 			color: $white;
+		}
+
+		&__title:hover, &__icon:hover {
+			color: $yellow;
 		}
 	}
 }
