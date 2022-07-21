@@ -39,8 +39,14 @@ nav {
   display: inline; }
   .nav__item__title, .nav__item__link, .nav__item__icon {
     color: #FFFFFF; }
-  .nav__item__title:hover, .nav__item__icon:hover {
+  .nav__item__link:hover .nav__item__title, .nav__item__link:hover .nav__item__icon {
     color: yellow; }
+
+.login_card {
+  width: 90vw;
+  margin: auto; }
+  .login_card__title {
+    text-align: center; }
 
 .contacts {
   margin-top: 1rem; }

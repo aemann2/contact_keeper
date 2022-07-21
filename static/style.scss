@@ -56,9 +56,19 @@ nav {
 			color: $white;
 		}
 
-		&__title:hover, &__icon:hover {
-			color: $yellow;
+		&__link:hover &__title, &__link:hover &__icon {
+			color: yellow
 		}
+	}
+}
+
+.login_card {
+	width: 90vw;
+  margin: auto;
+	
+
+	&__title {
+		text-align: center;
 	}
 }
 
