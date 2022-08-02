@@ -1,12 +1,34 @@
 {% extends "base.html" %}
 
-{% block title %}Sign Up{% endblock %}
+{% block title %}Register{% endblock %}
 
 {% block content %}
-  <h2>Sign up</h2>
+<div class='register_card'>
+  <h2 class='register_card__title'>Register</h2>
   <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign Up</button>
+    <div class='register_card__field'>
+      <label class='register_card__label'>{{ form.username.label_tag }}</label>
+      <span class='register_card__input'>
+          <i class="register_card__input__icon fas fa-user"></i>
+          {{ form.username }}
+      </span>
+  </div>
+  <div class='register_card__field'>
+    <label class='register_card__label'>{{ form.password1.label_tag }}</label>
+    <span class='register_card__input'>
+        <i class="register_card__input__icon fas fa-lock"></i>
+        {{ form.password1 }}
+    </span>
+  </div>
+  <div class='register_card__field'>
+    <label class='register_card__label'>{{ form.password2.label_tag }}</label>
+    <span class='register_card__input'>
+        <i class="register_card__input__icon fas fa-unlock"></i>
+        {{ form.password2 }}
+    </span>
+  </div>
+    <button class='register_card__button' type="submit">Register</button>
   </form>
+</div>
 {% endblock %}

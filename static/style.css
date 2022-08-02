@@ -42,7 +42,7 @@ nav {
   .nav__item__link:hover .nav__item__title, .nav__item__link:hover .nav__item__icon {
     color: yellow; }
 
-.login_card {
+.login_card, .register_card {
   width: 90vw;
   margin: auto;
   margin-top: 2rem;
@@ -50,12 +50,12 @@ nav {
   text-align: center;
   box-shadow: -1px 5px 17px -2px rgba(0, 0, 0, 0.79);
   padding: 1.5rem 1rem; }
-  .login_card__title {
+  .login_card__title, .register_card__title {
     font-size: 1.2rem;
     text-align: center; }
-  .login_card__field {
+  .login_card__field, .register_card__field {
     margin-top: .4rem; }
-  .login_card__label {
+  .login_card__label, .register_card__label {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -64,15 +64,15 @@ nav {
     padding: 0;
     position: absolute;
     width: 1px; }
-  .login_card__input__icon {
+  .login_card__input__icon, .register_card__input__icon {
     color: #b6b6b6;
     margin-right: .2rem; }
-  .login_card__input input {
+  .login_card__input input, .register_card__input input {
     width: 100px;
     border: none;
     border-bottom: 1px solid #b6b6b6;
     font-size: .8rem; }
-  .login_card__button {
+  .login_card__button, .register_card__button {
     background-color: #54b9ce;
     margin-top: 1.5rem;
     border: none;
@@ -80,7 +80,7 @@ nav {
     color: #FFFFFF;
     border-radius: 3px;
     padding: .3rem .5rem; }
-  .login_card__button:hover {
+  .login_card__button:hover, .register_card__button:hover {
     filter: brightness(90%); }
 
 .contacts {
