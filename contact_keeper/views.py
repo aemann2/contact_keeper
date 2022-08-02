@@ -38,7 +38,7 @@ def home(request):
 @login_required
 def delete_contact(request, pk):
     contact = get_object_or_404(Contact, pk=pk)
-    if request.method == 'POST':
+    if request.method == "POST":
         contact.delete()
         return redirect("/")
     return render(request, "home.html", {"contact": contact})
@@ -47,7 +47,7 @@ def delete_contact(request, pk):
 @login_required
 def edit_contact(request, pk):
     contact = get_object_or_404(Contact, pk=pk)
-    if request.method == 'POST':
+    if request.method == "POST":
         # adding contact pk for exclude in ContactForm clean() override
         form = ContactForm(request.POST, instance=contact, pk=pk)
         form.owner = request.user
@@ -82,6 +82,12 @@ class Login(LoginView):
 
 # as per docs, must add a custom creation form since we're using a custom User model
 class CustomUserCreationForm(UserCreationForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["username"].widget.attrs.update({"placeholder": ("Username")})
+        self.fields["password1"].widget.attrs.update({"placeholder": ("Password")})
+        self.fields["password2"].widget.attrs.update({"placeholder": ("Confirm")})
+
     class Meta(UserCreationForm.Meta):
         model = User
 
