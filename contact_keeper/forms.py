@@ -1,6 +1,15 @@
-from django.forms import ModelForm, RadioSelect
+from django.forms import ModelForm, RadioSelect, CharField
 from django.core.exceptions import ValidationError
+from django.contrib.auth.forms import AuthenticationForm
+from django.forms.widgets import PasswordInput, TextInput
 from .models import Contact
+
+
+class CustomAuthForm(AuthenticationForm):
+    username = CharField(
+    widget=TextInput(attrs={"class": "validate", "placeholder": "Username"})
+    )
+    password = CharField(widget=PasswordInput(attrs={"placeholder": "Password"}))
 
 
 class ContactForm(ModelForm):

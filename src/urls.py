@@ -1,11 +1,12 @@
 from django.contrib import admin
 from django.urls import path
+from contact_keeper.forms import CustomAuthForm
 from contact_keeper.views import Login, SignUp, home, delete_contact, edit_contact, logout_view
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", home, name="home"),
-    path("registration/login/", Login.as_view(), name="login"),
+    path("registration/login/", Login.as_view(authentication_form=CustomAuthForm), name="login"),
     path("registration/signup/", SignUp.as_view(), name="signup"),
     path("logout", logout_view, name="logout"),
     path("delete/<int:pk>", delete_contact, name='delete_contact'),
