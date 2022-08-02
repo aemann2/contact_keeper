@@ -44,9 +44,29 @@ nav {
 
 .login_card {
   width: 90vw;
-  margin: auto; }
+  margin: auto;
+  border-radius: 6px;
+  text-align: center;
+  box-shadow: -1px 5px 17px -2px rgba(0, 0, 0, 0.79);
+  padding: 1.5rem 1rem; }
   .login_card__title {
+    font-size: 1.2rem;
     text-align: center; }
+  .login_card__label {
+    visibility: hidden; }
+  .login_card__input input {
+    border: none;
+    border-bottom: 1px solid #b6b6b6; }
+  .login_card__button {
+    background-color: #54b9ce;
+    margin-top: 1.5rem;
+    border: none;
+    font-size: .8rem;
+    color: #FFFFFF;
+    border-radius: 3px;
+    padding: .3rem .5rem; }
+  .login_card__button:hover {
+    filter: brightness(90%); }
 
 .contacts {
   margin-top: 1rem; }
