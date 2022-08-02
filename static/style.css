@@ -97,6 +97,7 @@ nav {
   display: none; }
 
 .errorlist {
-  color: red; }
+  margin-top: .5rem;
+  list-style-type: none; }
 
 /*# sourceMappingURL=style.css.map */

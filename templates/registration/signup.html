@@ -13,6 +13,7 @@
           <i class="register_card__input__icon fas fa-user"></i>
           {{ form.username }}
       </span>
+      {{ form.username.errors }}
   </div>
   <div class='register_card__field'>
     <label class='register_card__label'>{{ form.password1.label_tag }}</label>
@@ -27,8 +28,10 @@
         <i class="register_card__input__icon fas fa-unlock"></i>
         {{ form.password2 }}
     </span>
+    <span>{{ form.password2.errors }}</span>
   </div>
     <button class='register_card__button' type="submit">Register</button>
+    {{ form.non_field_errors }}
   </form>
 </div>
 {% endblock %}
