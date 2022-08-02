@@ -6,6 +6,7 @@ $white: #FFFFFF;
 $yellow: yellow;
 $teal: #54b9ce;
 $grey: #b6b6b6;
+$drk-grey: #6b6b6b;
 
 html {
 	box-sizing: border-box;
@@ -67,6 +68,7 @@ nav {
 .login_card {
 	width: 90vw;
   margin: auto;
+	margin-top: 2rem;
 	border-radius: 6px;
 	text-align: center;
 	box-shadow: -1px 5px 17px -2px rgba(0,0,0,0.79)
@@ -78,14 +80,32 @@ nav {
 		text-align: center;
 	}
 
+	&__field {
+		margin-top: .4rem;
+	}
+
 	&__label {
-		visibility: hidden;
+		border: 0;
+		clip: rect(0 0 0 0);
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		width: 1px;
 	}
 
 	&__input {
+		&__icon {
+			color: $grey;
+			margin-right: .2rem;
+		}
+
 		input {
+			width: 100px;
 			border: none;
 			border-bottom: 1px solid $grey;
+			font-size: .8rem;
 		}
 	}
 

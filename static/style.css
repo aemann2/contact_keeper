@@ -45,6 +45,7 @@ nav {
 .login_card {
   width: 90vw;
   margin: auto;
+  margin-top: 2rem;
   border-radius: 6px;
   text-align: center;
   box-shadow: -1px 5px 17px -2px rgba(0, 0, 0, 0.79);
@@ -52,11 +53,25 @@ nav {
   .login_card__title {
     font-size: 1.2rem;
     text-align: center; }
+  .login_card__field {
+    margin-top: .4rem; }
   .login_card__label {
-    visibility: hidden; }
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px; }
+  .login_card__input__icon {
+    color: #b6b6b6;
+    margin-right: .2rem; }
   .login_card__input input {
+    width: 100px;
     border: none;
-    border-bottom: 1px solid #b6b6b6; }
+    border-bottom: 1px solid #b6b6b6;
+    font-size: .8rem; }
   .login_card__button {
     background-color: #54b9ce;
     margin-top: 1.5rem;

@@ -7,11 +7,17 @@
     {% csrf_token %}
     <div class='login_card__field'>
         <label class='login_card__label'>{{ form.username.label_tag }}</label>
-        <span class='login_card__input'>{{ form.username }}</span>
+        <span class='login_card__input'>
+            <i class="login_card__input__icon fas fa-user"></i>
+            {{ form.username }}
+        </span>
     </div>
     <div class='login_card__field'>
         <label class='login_card__label'>{{ form.password.label_tag }}</label>
-        <span class='login_card__input'>{{ form.password }}</span>
+        <span class='login_card__input'>
+            <i class="login_card__input__icon fas fa-lock"></i>
+            {{ form.password }}
+        </span>
     </div>
 
     <button type="submit" class='login_card__button'>Login</button>
