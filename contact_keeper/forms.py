@@ -7,7 +7,7 @@ from .models import Contact
 
 class CustomAuthForm(AuthenticationForm):
     username = CharField(
-    widget=TextInput(attrs={"class": "validate", "placeholder": "Username"})
+        widget=TextInput(attrs={"class": "validate", "placeholder": "Username"})
     )
     password = CharField(widget=PasswordInput(attrs={"placeholder": "Password"}))
 
@@ -27,9 +27,6 @@ class ContactForm(ModelForm):
             # popping 'pk' to avoid kwargs error
             kwargs.pop("pk")
         super(ContactForm, self).__init__(*args, **kwargs)
-        self.fields["name"].widget.attrs["placeholder"] = "John Doe"
-        self.fields["email"].widget.attrs["placeholder"] = "john@gmail.com"
-        self.fields["phone"].widget.attrs["placeholder"] = "(415)555-0938"
 
     # overwriting to check for duplicate entries
     def clean(self):

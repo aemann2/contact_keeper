@@ -3,19 +3,38 @@
 
 {% block content %}
 <div class='add_contact'>
-	<h2>Add Contact</h2>
+	<h2 class='add_contact__title'>Add Contact</h2>
 	{% if 'edit' in request.path %}
 	<form action="{% url 'edit_contact' pk %}" method='post'>
 	{% else %}
 	<form action='/' method='post'>
 	{% endif %}
 		{% csrf_token %}
-		{{ contact_form.as_p }}
-		{% if 'edit' in request.path %}
-		<button type="submit" class="submit_btn btn label-success">Edit Contact</button>
-		{% else %}
-		<button type="submit" class="submit_btn btn label-success">Add Contact</button>
-		{% endif %}
+		<div class='add_contact__fields'>
+			<div class='add_contact__field'>
+				<p class='add_contact__field__label'>{{contact_form.name.label}}</p>
+				<p class='add_contact__field__input'>{{contact_form.name}}</p>
+			</div>
+			<div class='add_contact__field'>
+				<p class='add_contact__field__label'>{{contact_form.email.label}}</p>
+				<p class='add_contact__field__input'>{{contact_form.email}}</p>
+			</div>
+			<div class='add_contact__field'>
+				<p class='add_contact__field__label'>{{contact_form.phone.label}}</p>
+				<p class='add_contact__field__input'>{{contact_form.phone}}</p>
+			</div>
+			<div class='add_contact__field'>
+				<p class='add_contact__field__label'>{{contact_form.contact_type.label}}</p>
+				<div class='add_contact__radios'>
+					{{contact_form.contact_type}}
+				</div>
+			</div>
+			{% if 'edit' in request.path %}
+			<button type="submit" class="add_contact__edit_btn">Edit Contact</button>
+			{% else %}
+			<button type="submit" class="add_contact__add_btn">Add Contact</button>
+			{% endif %}
+		</div>
 	</form>
 </div>
 

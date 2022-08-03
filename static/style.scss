@@ -7,6 +7,7 @@ $yellow: yellow;
 $teal: #54b9ce;
 $grey: #b6b6b6;
 $drk-grey: #6b6b6b;
+$maroon: #771a4a;
 
 html {
 	box-sizing: border-box;
@@ -29,6 +30,15 @@ body {
 
 button {
 	cursor: pointer;
+	border-radius: 3px;
+	border: none;
+	padding: .3rem .5rem;
+	font-size: .8rem;
+	color: $white;
+
+	&:hover {
+		filter: brightness(90%);
+	}
 }
 
 a:hover {
@@ -40,6 +50,10 @@ nav {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+input {
+	padding: 0 .3rem;
 }
 
 /* Main */
@@ -112,17 +126,56 @@ nav {
 	&__button {
 		background-color: $teal;
 		margin-top: 1.5rem;
-		border: none;
-		font-size: .8rem;
-		color: $white;
-		border-radius: 3px;
-		padding: .3rem .5rem;
+	}
+}
+
+.test {
+	display: flex;
+}
+
+.add_contact {
+	text-align: center;
+
+	&__title {
+		font-weight: 300;
 	}
 
-	&__button:hover {
-		filter: brightness(90%);
+	&__fields {
+		width: 60%;
+		margin: auto;
 	}
-	
+
+	&__field {
+		&__label {
+			text-align: left;
+			color: $drk-grey
+		}
+		&__input {
+			input {
+				width: 100%;
+				border: 1px solid $grey;
+				border-radius: 3px;
+			}
+		}
+	}
+
+	&__radios > div {
+		display: flex;
+		justify-content: space-around;
+		font-size: .8rem;
+	}
+
+	&__add_btn, &__edit_btn {
+		width: 100%;
+	}
+
+	&__add_btn {
+		background-color: $maroon;
+	}
+
+	&__edit_btn {
+		background-color: $teal;
+	}
 }
 
 .contacts {

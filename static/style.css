@@ -16,7 +16,14 @@ body {
   font-size: 100%; }
 
 button {
-  cursor: pointer; }
+  cursor: pointer;
+  border-radius: 3px;
+  border: none;
+  padding: .3rem .5rem;
+  font-size: .8rem;
+  color: #FFFFFF; }
+  button:hover {
+    filter: brightness(90%); }
 
 a:hover {
   text-decoration: none;
@@ -26,6 +33,9 @@ nav {
   list-style-type: none;
   margin: 0;
   padding: 0; }
+
+input {
+  padding: 0 .3rem; }
 
 /* Main */
 .nav__wrapper {
@@ -74,14 +84,35 @@ nav {
     font-size: .8rem; }
   .login_card__button, .register_card__button {
     background-color: #54b9ce;
-    margin-top: 1.5rem;
-    border: none;
-    font-size: .8rem;
-    color: #FFFFFF;
-    border-radius: 3px;
-    padding: .3rem .5rem; }
-  .login_card__button:hover, .register_card__button:hover {
-    filter: brightness(90%); }
+    margin-top: 1.5rem; }
+
+.test {
+  display: flex; }
+
+.add_contact {
+  text-align: center; }
+  .add_contact__title {
+    font-weight: 300; }
+  .add_contact__fields {
+    width: 60%;
+    margin: auto; }
+  .add_contact__field__label {
+    text-align: left;
+    color: #6b6b6b; }
+  .add_contact__field__input input {
+    width: 100%;
+    border: 1px solid #b6b6b6;
+    border-radius: 3px; }
+  .add_contact__radios > div {
+    display: flex;
+    justify-content: space-around;
+    font-size: .8rem; }
+  .add_contact__add_btn, .add_contact__edit_btn {
+    width: 100%; }
+  .add_contact__add_btn {
+    background-color: #771a4a; }
+  .add_contact__edit_btn {
+    background-color: #54b9ce; }
 
 .contacts {
   margin-top: 1rem; }
