@@ -3,7 +3,11 @@
 
 {% block content %}
 <div class='add_contact'>
-	<h2 class='add_contact__title'>Add Contact</h2>
+	{% if 'edit' in request.path %}
+		<h2 class='add_contact__title'>Edit Contact</h2>
+	{% else %}
+		<h2 class='add_contact__title'>Add Contact</h2>
+	{% endif %}
 	{% if 'edit' in request.path %}
 	<form action="{% url 'edit_contact' pk %}" method='post'>
 	{% else %}

@@ -108,11 +108,8 @@ input {
     justify-content: space-around;
     font-size: .8rem; }
   .add_contact__add_btn, .add_contact__edit_btn {
-    width: 100%; }
-  .add_contact__add_btn {
+    width: 100%;
     background-color: #771a4a; }
-  .add_contact__edit_btn {
-    background-color: #54b9ce; }
 
 .contacts {
   margin-top: 1rem; }
