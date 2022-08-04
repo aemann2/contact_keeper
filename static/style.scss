@@ -3,11 +3,12 @@
 
 $nav-color: #5763B7;
 $blue: #2c2ce5;
+$green: #1eae1e;
 $white: #FFFFFF;
 $yellow: yellow;
 $teal: #54b9ce;
-$grey: #b6b6b6;
 $black: black;
+$grey: #b6b6b6;
 $drk-grey: #6b6b6b;
 $lgt-grey: #c5c5c5;
 $maroon: #771a4a;
@@ -220,11 +221,21 @@ ul {
 
 	&__badge {
 		display: inline;
-		background-color: $blue;
-		color: $white;
-		font-size: .8rem;
-		padding: 5px;
-		border-radius: 5px;
+
+		span {
+			color: $white;
+			font-size: .8rem;
+			padding: 5px;
+			border-radius: 5px;
+		}
+
+		&--professional {
+			background-color: $blue;
+		}
+
+		&--personal {
+			background-color: $green;
+		}
 	}
 
 	&__buttons {

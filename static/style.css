@@ -142,12 +142,16 @@ ul {
       display: flex;
       justify-content: space-between; }
   .contact_card__badge {
-    display: inline;
-    background-color: #2c2ce5;
-    color: #FFFFFF;
-    font-size: .8rem;
-    padding: 5px;
-    border-radius: 5px; }
+    display: inline; }
+    .contact_card__badge span {
+      color: #FFFFFF;
+      font-size: .8rem;
+      padding: 5px;
+      border-radius: 5px; }
+    .contact_card__badge--professional {
+      background-color: #2c2ce5; }
+    .contact_card__badge--personal {
+      background-color: #1eae1e; }
   .contact_card__buttons {
     display: flex;
     justify-content: left; }

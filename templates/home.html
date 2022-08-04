@@ -59,7 +59,11 @@
 						<li class='contact_card__name--wrapper'>
 							<span class='contact_card__name'>{{contact.name}}</span>
 							<div class='contact_card__badge'>
-								<span>{{contact.contact_type}}</span>
+								{% if contact.contact_type == 'Professional' %}
+									<span class='contact_card__badge--professional'>{{contact.contact_type}}</span>
+								{% else %}
+									<span class='contact_card__badge--personal'>{{contact.contact_type}}</span>
+								{% endif %}
 							</div>
 						</li>
 						<li class='contact_card__email'>
