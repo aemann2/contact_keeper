@@ -67,6 +67,15 @@ ul {
 
 /* Main */
 
+.main {
+		@media (min-width: 1200px) {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 80vh;
+	}
+}
+
 .nav {
 	&__wrapper {
 		display: flex;
@@ -144,6 +153,31 @@ ul {
 
 .add_contact {
 	text-align: center;
+	max-width: 500px;
+	margin: auto;
+	
+	@media (min-width: 1200px) {
+		width: 95%;
+		height: 100%;
+		margin: 0;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	&__upper {
+		@media (min-width: 1200px) {
+			display: flex;
+			flex-direction: column;
+			justify-content: end;
+			flex: .45;
+		}
+	}
+
+	form {
+		flex: 1
+	}
 
 	&__title {
 		font-weight: 300;
@@ -181,8 +215,34 @@ ul {
 }
 
 .contacts {
+	max-width: 500px;
+	margin: auto;
 	margin-top: 2rem;
 	text-align: center;
+
+	@media (min-width: 1200px) {
+		width: 95%;
+		height: 100%;
+		margin: 0rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	&__upper {
+		@media (min-width: 1200px) {
+			flex: .5;
+			display: flex;
+			flex-direction: column;
+			justify-content: end;
+		}
+	}
+
+	&__cards {
+		@media (min-width: 1200px) {
+			flex: 1;
+		}
+	}
 
 	&__title {
 		font-weight: 300;

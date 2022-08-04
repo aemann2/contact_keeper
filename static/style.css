@@ -41,6 +41,13 @@ ul {
   list-style: none; }
 
 /* Main */
+@media (min-width: 1200px) {
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; } }
+
 .nav__wrapper {
   display: flex;
   justify-content: space-around;
@@ -93,7 +100,26 @@ ul {
   display: flex; }
 
 .add_contact {
-  text-align: center; }
+  text-align: center;
+  max-width: 500px;
+  margin: auto; }
+  @media (min-width: 1200px) {
+    .add_contact {
+      width: 95%;
+      height: 100%;
+      margin: 0;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; } }
+  @media (min-width: 1200px) {
+    .add_contact__upper {
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      flex: .45; } }
+  .add_contact form {
+    flex: 1; }
   .add_contact__title {
     font-weight: 300; }
   .add_contact__fields {
@@ -115,8 +141,27 @@ ul {
     background-color: #771a4a; }
 
 .contacts {
+  max-width: 500px;
+  margin: auto;
   margin-top: 2rem;
   text-align: center; }
+  @media (min-width: 1200px) {
+    .contacts {
+      width: 95%;
+      height: 100%;
+      margin: 0rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; } }
+  @media (min-width: 1200px) {
+    .contacts__upper {
+      flex: .5;
+      display: flex;
+      flex-direction: column;
+      justify-content: end; } }
+  @media (min-width: 1200px) {
+    .contacts__cards {
+      flex: 1; } }
   .contacts__title {
     font-weight: 300; }
   .contacts__cards {
