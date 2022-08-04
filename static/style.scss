@@ -14,6 +14,8 @@ $lgt-grey: #c5c5c5;
 $maroon: #771a4a;
 $red: #d63030;
 
+$desktop-width: 1100px;
+
 html {
 	box-sizing: border-box;
 }
@@ -68,7 +70,7 @@ ul {
 /* Main */
 
 .main {
-		@media (min-width: 1200px) {
+		@media (min-width: $desktop-width) {
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -77,6 +79,10 @@ ul {
 }
 
 .nav {
+	@media (min-width: $desktop-width) {
+		font-size: 1.3rem;
+	}
+
 	&__wrapper {
 		display: flex;
 		justify-content: space-around;
@@ -155,25 +161,6 @@ ul {
 	text-align: center;
 	max-width: 500px;
 	margin: auto;
-	
-	@media (min-width: 1200px) {
-		width: 95%;
-		height: 100%;
-		margin: 0;
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-	}
-
-	&__upper {
-		@media (min-width: 1200px) {
-			display: flex;
-			flex-direction: column;
-			justify-content: end;
-			flex: .45;
-		}
-	}
 
 	form {
 		flex: 1
@@ -220,27 +207,9 @@ ul {
 	margin-top: 2rem;
 	text-align: center;
 
-	@media (min-width: 1200px) {
-		width: 95%;
-		height: 100%;
-		margin: 0rem;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-	}
-
-	&__upper {
-		@media (min-width: 1200px) {
-			flex: .5;
-			display: flex;
-			flex-direction: column;
-			justify-content: end;
-		}
-	}
-
 	&__cards {
-		@media (min-width: 1200px) {
-			flex: 1;
+		@media (min-width: $desktop-width) {
+			flex: 1.5;
 		}
 	}
 
@@ -256,6 +225,26 @@ ul {
 	&__msg {
 		margin-top: 1rem;
 		font-size: 1.2rem;
+	}
+}
+
+.add_contact, .contacts {
+	@media (min-width: $desktop-width) {
+		width: 95%;
+		height: 100%;
+		margin: 0rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	&__upper {
+		@media (min-width: $desktop-width) {
+			flex: .5;
+			display: flex;
+			flex-direction: column;
+			justify-content: end;
+		}
 	}
 }
 
