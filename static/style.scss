@@ -2,12 +2,16 @@
 /* Globals */
 
 $nav-color: #5763B7;
+$blue: #2c2ce5;
 $white: #FFFFFF;
 $yellow: yellow;
 $teal: #54b9ce;
 $grey: #b6b6b6;
+$black: black;
 $drk-grey: #6b6b6b;
+$lgt-grey: #c5c5c5;
 $maroon: #771a4a;
+$red: #d63030;
 
 html {
 	box-sizing: border-box;
@@ -54,6 +58,10 @@ nav {
 
 input {
 	padding: 0 .3rem;
+}
+
+ul {
+	list-style: none;
 }
 
 /* Main */
@@ -141,7 +149,7 @@ input {
 	}
 
 	&__fields {
-		width: 60%;
+		width: 80%;
 		margin: auto;
 	}
 
@@ -172,16 +180,67 @@ input {
 }
 
 .contacts {
-	margin-top: 1rem;
-}
+	margin-top: 2rem;
+	text-align: center;
 
-.contact_cards {
-	height: 300px;
-	overflow: scroll;
+	&__title {
+		font-weight: 300;
+	}
+
+	&__cards {
+		height: 300px;
+		overflow: scroll;
+	}
+
+	&__msg {
+		margin-top: 1rem;
+		font-size: 1.2rem;
+	}
 }
 
 .contact_card {
+	text-align: left;
+	margin: auto;
 	margin-top: 1rem;
+	padding: 1rem 2rem;
+	width: 80%;
+	border-radius: 5px;
+	background: $lgt-grey;
+
+	&__name {
+		font-weight: 500;
+		font-size: 1.1rem;
+		color: $blue;
+
+		&--wrapper {
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+
+	&__badge {
+		display: inline;
+		background-color: $blue;
+		color: $white;
+		font-size: .8rem;
+		padding: 5px;
+		border-radius: 5px;
+	}
+
+	&__buttons {
+		display: flex;
+		justify-content: left;
+	}
+
+	&__button {
+		&--edit {
+			background-color: $black;
+			margin-right: 1rem;
+		}
+		&--delete {
+			background-color: $red;
+		}
+	}
 }
 
 .phone-field-ext, #id_phone_1 {
