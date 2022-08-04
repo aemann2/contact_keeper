@@ -1,64 +1,171 @@
-
 /* Globals */
-
 html {
-	box-sizing: border-box;
-}
+  box-sizing: border-box; }
+
 *,
 *:before,
 *:after {
-	box-sizing: inherit;
-}
+  box-sizing: inherit; }
 
 * {
-	margin: 0;
-	padding: 0;
-}
+  margin: 0;
+  padding: 0; }
 
 body {
-	min-height: 100vh;
-	font-size: 100%;
-}
+  min-height: 100vh;
+  font-size: 100%; }
 
 button {
-	cursor: pointer;
-}
+  cursor: pointer;
+  border-radius: 3px;
+  border: none;
+  padding: .3rem .5rem;
+  font-size: .8rem;
+  color: #FFFFFF; }
+  button:hover {
+    filter: brightness(90%); }
+
+a:hover {
+  text-decoration: none;
+  color: yellow; }
 
 nav {
   list-style-type: none;
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
+
+input {
+  padding: 0 .3rem; }
+
+ul {
+  list-style: none; }
 
 /* Main */
-
 .nav__wrapper {
-	display: flex;
-	justify-content: space-between;
-	padding:.5rem;
-}
+  display: flex;
+  justify-content: space-around;
+  background-color: #5763B7;
+  width: 100%;
+  padding: .5rem; }
 
 .nav__item {
-  display: inline;
-}
+  display: inline; }
+  .nav__item__title, .nav__item__link, .nav__item__icon {
+    color: #FFFFFF; }
+  .nav__item__link:hover .nav__item__title, .nav__item__link:hover .nav__item__icon {
+    color: yellow; }
+
+.login_card, .register_card {
+  width: 90vw;
+  margin: auto;
+  margin-top: 2rem;
+  border-radius: 6px;
+  text-align: center;
+  box-shadow: -1px 5px 17px -2px rgba(0, 0, 0, 0.79);
+  padding: 1.5rem 1rem; }
+  .login_card__title, .register_card__title {
+    font-size: 1.2rem;
+    text-align: center; }
+  .login_card__field, .register_card__field {
+    margin-top: .4rem; }
+  .login_card__label, .register_card__label {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px; }
+  .login_card__input__icon, .register_card__input__icon {
+    color: #b6b6b6;
+    margin-right: .2rem; }
+  .login_card__input input, .register_card__input input {
+    width: 100px;
+    border: none;
+    border-bottom: 1px solid #b6b6b6;
+    font-size: .8rem; }
+  .login_card__button, .register_card__button {
+    background-color: #54b9ce;
+    margin-top: 1.5rem; }
+
+.test {
+  display: flex; }
+
+.add_contact {
+  text-align: center; }
+  .add_contact__title {
+    font-weight: 300; }
+  .add_contact__fields {
+    width: 80%;
+    margin: auto; }
+  .add_contact__field__label {
+    text-align: left;
+    color: #6b6b6b; }
+  .add_contact__field__input input {
+    width: 100%;
+    border: 1px solid #b6b6b6;
+    border-radius: 3px; }
+  .add_contact__radios > div {
+    display: flex;
+    justify-content: space-around;
+    font-size: .8rem; }
+  .add_contact__add_btn, .add_contact__edit_btn {
+    width: 100%;
+    background-color: #771a4a; }
 
 .contacts {
-	margin-top: 1rem;
-}
-
-.contact_cards {
-	height: 300px;
-	overflow: scroll;
-}
+  margin-top: 2rem;
+  text-align: center; }
+  .contacts__title {
+    font-weight: 300; }
+  .contacts__cards {
+    height: 300px;
+    overflow: scroll; }
+  .contacts__msg {
+    margin-top: 1rem;
+    font-size: 1.2rem; }
 
 .contact_card {
-	margin-top: 1rem;
-}
+  text-align: left;
+  margin: auto;
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  width: 80%;
+  border-radius: 5px;
+  background: #c5c5c5; }
+  .contact_card__name {
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: #2c2ce5; }
+    .contact_card__name--wrapper {
+      display: flex;
+      justify-content: space-between; }
+  .contact_card__badge {
+    display: inline; }
+    .contact_card__badge span {
+      color: #FFFFFF;
+      font-size: .8rem;
+      padding: 5px;
+      border-radius: 5px; }
+    .contact_card__badge--professional {
+      background-color: #2c2ce5; }
+    .contact_card__badge--personal {
+      background-color: #1eae1e; }
+  .contact_card__buttons {
+    display: flex;
+    justify-content: left; }
+  .contact_card__button--edit {
+    background-color: black;
+    margin-right: 1rem; }
+  .contact_card__button--delete {
+    background-color: #d63030; }
 
 .phone-field-ext, #id_phone_1 {
-	display: none;
-}
+  display: none; }
 
 .errorlist {
-	color: red;
-}
+  margin-top: .5rem;
+  list-style-type: none; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,4 +1,5 @@
 {% load static %}
+{% load sass_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Contact Keeper</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<link href="{% sass_src 'style.scss' %}" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %} ">
+	<script src="https://kit.fontawesome.com/7a37b269f1.js" crossorigin="anonymous"></script>
 </head>
 <body>
 	{% include 'partials/_nav.html' %}
