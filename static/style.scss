@@ -70,11 +70,14 @@ ul {
 /* Main */
 
 .main {
-		@media (min-width: $desktop-width) {
+	margin-bottom: 2rem;
+	
+	@media (min-width: $desktop-width) {
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			height: 80vh;
+			margin-bottom: 0;
 	}
 }
 
