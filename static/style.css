@@ -205,4 +205,13 @@ ul {
   margin-top: .5rem;
   list-style-type: none; }
 
+#username-error span {
+  font-size: .8rem; }
+
+.username--available {
+  color: #1eae1e; }
+
+.username--exists {
+  color: #d63030; }
+
 /*# sourceMappingURL=style.css.map */

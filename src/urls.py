@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from contact_keeper.forms import CustomAuthForm
-from contact_keeper.views import Login, SignUp, home, delete_contact, edit_contact, logout_view
+from contact_keeper.views import Login, SignUp, home, delete_contact, edit_contact, logout_view, check_username
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -12,6 +12,12 @@ urlpatterns = [
     path("delete/<int:pk>", delete_contact, name='delete_contact'),
     path("edit/<int:pk>", edit_contact, name='edit_contact')
 ]
+
+htmx = [
+    path("check_username/", check_username, name='check_username')
+]
+
+urlpatterns += htmx
 
 """src URL Configuration
 The `urlpatterns` list routes URLs to views. For more information please see:

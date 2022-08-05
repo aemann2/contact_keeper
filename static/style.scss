@@ -313,3 +313,18 @@ ul {
 	margin-top: .5rem;
 	list-style-type: none;
 }
+
+#username-error {
+	span {
+		font-size: .8rem;
+	}
+}
+
+.username {
+	&--available {
+		color: $green
+	}
+	&--exists {
+		color: $red
+	}
+}
