@@ -2,97 +2,103 @@
 {% load static %}
 
 {% block content %}
-<div class='add_contact'>
-	{% if 'edit' in request.path %}
-		<h2 class='add_contact__title'>Edit Contact</h2>
-	{% else %}
-		<h2 class='add_contact__title'>Add Contact</h2>
-	{% endif %}
-	{% if 'edit' in request.path %}
-	<form action="{% url 'edit_contact' pk %}" method='post'>
-	{% else %}
-	<form action='/' method='post'>
-	{% endif %}
-		{% csrf_token %}
-		<div class='add_contact__fields'>
-			<div class='add_contact__field'>
-				<p class='add_contact__field__label'>{{contact_form.name.label}}</p>
-				<p class='add_contact__field__input'>{{contact_form.name}}</p>
-			</div>
-			<div class='add_contact__field'>
-				<p class='add_contact__field__label'>{{contact_form.email.label}}</p>
-				<p class='add_contact__field__input'>{{contact_form.email}}</p>
-			</div>
-			<div class='add_contact__field'>
-				<p class='add_contact__field__label'>{{contact_form.phone.label}}</p>
-				<p class='add_contact__field__input'>{{contact_form.phone}}</p>
-			</div>
-			<div class='add_contact__field'>
-				<p class='add_contact__field__label'>{{contact_form.contact_type.label}}</p>
-				<div class='add_contact__radios'>
-					{{contact_form.contact_type}}
-				</div>
-			</div>
+<main class='main'>
+	<div class='add_contact'>
+		<div class='add_contact__upper'>
 			{% if 'edit' in request.path %}
-			<button type="submit" class="add_contact__edit_btn">Edit Contact</button>
+				<h2 class='add_contact__title'>Edit Contact</h2>
 			{% else %}
-			<button type="submit" class="add_contact__add_btn">Add Contact</button>
+				<h2 class='add_contact__title'>Add Contact</h2>
 			{% endif %}
 		</div>
-	</form>
-</div>
-
-<div class='contacts'>
-	<h2 class='contacts__title'>Contact List</h2>
-	<form action="/">
-		{% if filter %}
-		<input name="filter" value={{filter}} />
+			{% if 'edit' in request.path %}
+		<form action="{% url 'edit_contact' pk %}" method='post'>
 		{% else %}
-		<input name="filter" placeholder="Filter Contacts..." />
+		<form action='/' method='post'>
 		{% endif %}
-	</form>
-		<div class='contacts__cards'>
-			{% if contacts %}
-				{% for contact in contacts  %}
-				<div class='contact_card'>
-					<ul class='contact_card__details'>
-						<li class='contact_card__name--wrapper'>
-							<span class='contact_card__name'>{{contact.name}}</span>
-							<div class='contact_card__badge'>
-								{% if contact.contact_type == 'Professional' %}
-									<span class='contact_card__badge--professional'>{{contact.contact_type}}</span>
-								{% else %}
-									<span class='contact_card__badge--personal'>{{contact.contact_type}}</span>
-								{% endif %}
-							</div>
-						</li>
-						<li class='contact_card__email'>
-							<i class="fas fa-envelope"></i>
-							{{contact.email}}
-						</li>
-						<li class='contact_card__phone'>
-							<i class="fas fa-phone"></i>{{contact.phone}}
-						</li>
-					</ul>
-					<div class='contact_card__buttons'>
-						<form action="{% url 'edit_contact' contact.id %}">
-							{% csrf_token %}
-							<button class='contact_card__button--edit' type="submit">Edit</button>
-						</form>
-						<form action="{% url 'delete_contact' contact.id %}" method="post">
-							{% csrf_token %}
-							<button class=' contact_card__button--delete' type="submit">Delete</button>
-						</form>
+			{% csrf_token %}
+			<div class='add_contact__fields'>
+				<div class='add_contact__field'>
+					<p class='add_contact__field__label'>{{contact_form.name.label}}</p>
+					<p class='add_contact__field__input'>{{contact_form.name}}</p>
+				</div>
+				<div class='add_contact__field'>
+					<p class='add_contact__field__label'>{{contact_form.email.label}}</p>
+					<p class='add_contact__field__input'>{{contact_form.email}}</p>
+				</div>
+				<div class='add_contact__field'>
+					<p class='add_contact__field__label'>{{contact_form.phone.label}}</p>
+					<p class='add_contact__field__input'>{{contact_form.phone}}</p>
+				</div>
+				<div class='add_contact__field'>
+					<p class='add_contact__field__label'>{{contact_form.contact_type.label}}</p>
+					<div class='add_contact__radios'>
+						{{contact_form.contact_type}}
 					</div>
 				</div>
-			{% endfor %}
+				{% if 'edit' in request.path %}
+				<button type="submit" class="add_contact__edit_btn">Edit Contact</button>
+				{% else %}
+				<button type="submit" class="add_contact__add_btn">Add Contact</button>
+				{% endif %}
+			</div>
+		</form>
 	</div>
-	{% elif filter %}
-		<p class='contacts__msg'>No contacts found with that filter</p>
-	{% else %}
-		<p class='contacts__msg'>Please add a contact</p>
-	{% endif %}
-</div>
+
+	<div class='contacts'>
+		<div class='contacts__upper'>
+			<h2 class='contacts__title'>Contact List</h2>
+			<form action="/">
+				{% if filter %}
+				<input name="filter" value={{filter}} />
+				{% else %}
+				<input name="filter" placeholder="Filter Contacts..." />
+				{% endif %}
+			</form>
+		</div>
+			<div class='contacts__cards'>
+				{% if contacts %}
+					{% for contact in contacts  %}
+					<div class='contact_card'>
+						<ul class='contact_card__details'>
+							<li class='contact_card__name--wrapper'>
+								<span class='contact_card__name'>{{contact.name}}</span>
+								<div class='contact_card__badge'>
+									{% if contact.contact_type == 'Professional' %}
+										<span class='contact_card__badge--professional'>{{contact.contact_type}}</span>
+									{% else %}
+										<span class='contact_card__badge--personal'>{{contact.contact_type}}</span>
+									{% endif %}
+								</div>
+							</li>
+							<li class='contact_card__email'>
+								<i class="fas fa-envelope"></i>
+								{{contact.email}}
+							</li>
+							<li class='contact_card__phone'>
+								<i class="fas fa-phone"></i>{{contact.phone}}
+							</li>
+						</ul>
+						<div class='contact_card__buttons'>
+							<form action="{% url 'edit_contact' contact.id %}">
+								{% csrf_token %}
+								<button class='contact_card__button--edit' type="submit">Edit</button>
+							</form>
+							<form action="{% url 'delete_contact' contact.id %}" method="post">
+								{% csrf_token %}
+								<button class=' contact_card__button--delete' type="submit">Delete</button>
+							</form>
+						</div>
+					</div>
+				{% endfor %}
+		</div>
+		{% elif filter %}
+			<p class='contacts__msg'>No contacts found with that filter</p>
+		{% else %}
+			<p class='contacts__msg'>Please add a contact</p>
+		{% endif %}
+	</div>
+</main>
 
 <script>
 	const phoneField = document.getElementById('id_phone_0')
