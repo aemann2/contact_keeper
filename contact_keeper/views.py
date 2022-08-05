@@ -113,7 +113,7 @@ def logout_view(request):
     return redirect("/registration/login")
 
 
-def check_username(request):
+def check_username(request):  # pragma: no cover
     username = request.POST.get("username")
     if not username:
         return HttpResponse("<span></span>")

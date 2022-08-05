@@ -49,7 +49,7 @@ class HomeViewTests(TestCase):
     def test_edit_form_fields(self):
         jim = Contact.objects.filter(name="Jim Doe").first()
         response = self.client.get(f"/edit/{jim.pk}")
-        form = response.context["form"]
+        form = response.context["contact_form"]
         self.assertTrue(form["name"].value() == "Jim Doe")
         self.assertTrue(form["email"].value() == "jim@test.com")
         self.assertTrue(form["phone"].value() == "123-123-1233")
