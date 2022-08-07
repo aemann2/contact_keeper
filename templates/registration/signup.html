@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load widget_tweaks %}
 
 {% block title %}Register{% endblock %}
 
@@ -11,8 +12,9 @@
       <label class='register_card__label'>{{ form.username.label_tag }}</label>
       <span class='register_card__input'>
           <i class="register_card__input__icon fas fa-user"></i>
-          {{ form.username }}
+          {% render_field form.username hx-post='/check_username/' hx-trigger='keyup' hx-target='#username-error' %}
       </span>
+      <div id='username-error'></div>
       {{ form.username.errors }}
   </div>
   <div class='register_card__field'>

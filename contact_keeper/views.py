@@ -1,6 +1,7 @@
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
-from django.contrib.auth import logout
+from django.contrib.auth import logout, get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView
@@ -110,3 +111,17 @@ class SignUp(CreateView):
 def logout_view(request):
     logout(request)
     return redirect("/registration/login")
+
+
+def check_username(request):  # pragma: no cover
+    username = request.POST.get("username")
+    if not username:
+        return HttpResponse("<span></span>")
+    if get_user_model().objects.filter(username=username):
+        return HttpResponse(
+            '<span class="username--exists">This username already exists</span>'
+        )
+    else:
+        return HttpResponse(
+            '<span class="username--available">This username is available</span>'
+        )
