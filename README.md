@@ -10,16 +10,19 @@
 
 ## Running the project locally
 - Clone or download the repo (e.g, `gh repo clone aemann2/contact_keeper`)
-- Place the cloned repo in a directory. I call mine `djago_contact_keeper`
-- Set up a virtual environment using `python -m venv venv`
+- Place the cloned repo in a directory. I call mine `django_contact_keeper`
+- In the directory containing the cloned repo, up a virtual environment using `python -m venv venv`
 - Activate the virtual environment using `. venv/bin/activate` with bash, or using `source venv/bin/activate` with zsh
-- Navigate into the main `contact_keeper` directory
-- In the `contact_keeper`, install the project dependencies using `pip install -r requirements.txt`
+- Navigate into the main `contact_keeper` directory downloaded from the repo
+- In `contact_keeper`, install the project dependencies using `pip install -r requirements.txt`
 - Follow the directions [here](https://dev.to/mungaigikure/how-to-set-up-postgres-in-your-django-project-575i) to set up a Postgres database locally
-- In the main `contact_keeper` directory, run `python manage.py migrate`
+- In the main `contact_keeper` directory, run `python manage.py migrate` and `python manage.py collectstatic`
 - Navigate to the `src` directory and create a file called `.env`. Populate this file with the values used to set up your Postgres database. Make sure `DEBUG` is set to `TRUE`.
 - In the main `contact_keeper` directory, run `python manage.py runserver` to run the project locally
 
+## Technology:
+
+Python, Django, SASS, Bootstrap, HTMX, Coverage (for testing), Postgres, Heroku
 
 ## Commands for running tests w/ coverage: 
 - Run test suite: `coverage run --source='.' manage.py test`
