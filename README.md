@@ -2,7 +2,7 @@
 
 <a href="https://django-contact-keeper.herokuapp.com/" target="_blank"><img src='https://user-images.githubusercontent.com/68879246/183273949-fc64ab50-e5fd-450b-b0ec-ea9ac3f9fb7b.png' alt='Django Contact Keeper'></a>
 
-**Contact Keeper** is an application built with Django. This is a full stack application that allows a user to register and create contacts with phone and email info, as well as filter those contacts. This project is a Django adaptation of Brad Traversy's React Contact Keeper, taken from his React Front to Back Udemy course.
+**Contact Keeper** is an application built with Django. This is a full stack application that allows a user to register and create contacts with phone and email info, as well as filter those contacts. This project is a Django adaptation of [Brad Traversy's](https://www.traversymedia.com/) React Contact Keeper, taken from his [React Front to Back](https://www.udemy.com/course/modern-react-front-to-back/) Udemy course.
 
 **_Demo login credentials:_**
 **Username**: testUser
